@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background-color: #709053;
+    margin: auto -16px;
+    padding: 32px 32px;
+    color: #FFF4C9;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+header h1 {
+    margin-left: 1.5rem;
+}
+
+body {
+    padding: 0 16px;
+    background-color: #FFF4C9;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #FFF4C9;
+    font-size: 13px;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.food-container {
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    width: 93rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(290px,290px));
+    padding: 3rem 0;
+}
+
+.food-item {
+    padding: 1rem;
+    height: 310px;
+    width: 250px;
+    border: 2px solid;
+    border-radius: 10%;
+    background-color: #C7E78B;
+    color: #709053;
+}
+
+.food-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10%;
+    margin-bottom: 7px;
+}
+
+.food-item p {
+    margin-top: 8px;
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin-right: 5px;
+    float: left;
+    border: 1px solid;
+    border-radius: 20px;
+    padding: 1px 4px;
+}
+
+.food-item:hover {
+    background-color: #81AE64;
+    color: #FFF4C9;
+    border: 4px solid;
+    border-color: #81AE64;
+}
+
+.food-item:hover .tags {
+    background-color: #81AE64;
+    border-color: #FFF4C9;
+}
