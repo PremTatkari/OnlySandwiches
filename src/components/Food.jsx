@@ -8,7 +8,6 @@ function Food(props){
     <Link to="/foodPage">
     <div className="food-item">
             <img src={props.image} alt="food-img" />
-            
             <h4>{props.name}</h4>
             <p>{props.description}</p>
             <div className="tag-container">

@@ -30,6 +30,7 @@ a {
     margin-bottom: 2rem;
 }
 
+
 .food-container {
     position: absolute;
     justify-content: center;
@@ -81,3 +82,61 @@ a {
     background-color: #81AE64;
     border-color: #FFF4C9;
 }
+
+.food-page {
+    margin: 2.5rem;
+}
+
+.food-details {
+    display: flex;
+}
+
+.food-image img{
+    width: 40rem;
+    height: auto;
+    border: 4px solid;
+}
+
+.food-info {
+    margin-left: 1rem;
+    padding: 12% 8%;
+}
+
+.food-page h2 {
+    display: inline;
+    margin-right: 10rem;
+}
+
+.lists {
+    display: flex;
+    width: 50%;
+    margin: auto;
+}
+
+.ingredient-list {
+    display: inline;
+    margin: 2.5rem 0;
+}
+
+.ingredients h4 {
+    list-style-type: none;
+    margin-right: 20px;
+    float: left;
+}
+
+.ingredients button {
+    background-color: #FFF4C9;
+    border-radius: 100%;
+    margin: 0 5px; 
+    width: 1.2rem; 
+}
+
+.ingredients button:active {
+    background-color: #b5ad8c;
+}
+
+.step-list {
+    list-style-type: none;
+    margin: 2.5rem 10rem;
+}
+
