@@ -1,142 +1,166 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 header {
-    background-color: #709053;
-    margin: auto -16px;
-    padding: 32px 32px;
-    color: #FFF4C9;
-    font-family: 'Courier New', Courier, monospace;
+  background-color: #709053;
+  margin: auto -16px;
+  padding: 32px 32px;
+  color: #fff4c9;
+  font-family: "Courier New", Courier, monospace;
 }
 
 header h1 {
-    margin-left: 1.5rem;
+  margin-left: 1.5rem;
 }
 
 body {
-    padding: 0 16px;
-    background-color: #FFF4C9;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0 16px;
+  background-color: #fff4c9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 a {
-    text-decoration: none;
-    color: #FFF4C9;
-    font-size: 13px;
-    margin: auto;
-    margin-bottom: 2rem;
+  text-decoration: none;
+  color: #fff4c9;
+  font-size: 13px;
+  margin: auto;
+  margin-bottom: 2rem;
 }
 
-
 .food-container {
-    position: absolute;
-    justify-content: center;
-    align-items: center;
-    width: 93rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(290px,290px));
-    padding: 3rem 0;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 93rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 290px));
+  padding: 3rem 0;
 }
 
 .food-item {
-    padding: 1rem;
-    height: 310px;
-    width: 250px;
-    border: 2px solid;
-    border-radius: 10%;
-    background-color: #C7E78B;
-    color: #709053;
+  padding: 1rem;
+  height: 310px;
+  width: 250px;
+  border: 2px solid;
+  border-radius: 10%;
+  background-color: #c7e78b;
+  color: #709053;
 }
 
 .food-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10%;
-    margin-bottom: 7px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+  margin-bottom: 7px;
 }
 
 .food-item p {
-    margin-top: 8px;
-    margin-bottom: 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
 }
 
 .tags {
-    margin-right: 5px;
-    float: left;
-    border: 1px solid;
-    border-radius: 20px;
-    padding: 1px 4px;
+  margin-right: 5px;
+  float: left;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 1px 4px;
 }
 
 .food-item:hover {
-    background-color: #81AE64;
-    color: #FFF4C9;
-    border: 4px solid;
-    border-color: #81AE64;
+  background-color: #81ae64;
+  color: #fff4c9;
+  border: 4px solid;
+  border-color: #81ae64;
 }
 
 .food-item:hover .tags {
-    background-color: #81AE64;
-    border-color: #FFF4C9;
+  background-color: #81ae64;
+  border-color: #fff4c9;
 }
 
 .food-page {
-    margin: 2.5rem;
+  margin: 2.5rem;
 }
 
 .food-details {
-    display: flex;
+  display: flex;
 }
 
-.food-image img{
-    width: 40rem;
-    height: auto;
-    border: 4px solid;
+.food-image img {
+  width: 40rem;
+  height: auto;
+  border: 4px solid;
 }
 
 .food-info {
-    margin-left: 1rem;
-    padding: 12% 8%;
+  margin-left: 1rem;
+  padding: 12% 8%;
 }
 
 .food-page h2 {
-    display: inline;
-    margin-right: 10rem;
+  display: inline;
+  margin-right: 10rem;
 }
 
 .lists {
-    display: flex;
-    width: 50%;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .ingredient-list {
-    display: inline;
-    margin: 2.5rem 0;
+  display: inline;
+  margin: 2.5rem 0;
+}
+
+.ingredients {
+  width: 30rem;
+  height: 3rem;
+  background-color: #c7e78b;
+  border: solid #81ae64;
+  margin-top: -3px;
+  padding: 0.5rem 0.8rem;
 }
 
 .ingredients h4 {
-    list-style-type: none;
-    margin-right: 20px;
-    float: left;
+  list-style-type: none;
+  float: left;
 }
 
 .ingredients button {
-    background-color: #FFF4C9;
-    border-radius: 100%;
-    margin: 0 5px; 
-    width: 1.2rem; 
+  background-color: #fff4c9;
+  border-radius: 100%;
+  margin: 0 10px;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: large;
+  float: right;
+  position: absolute;
+  
+}
+
+.add {
+  left: 30.5rem;
+}
+
+.remove {
+  left: 25rem;
 }
 
 .ingredients button:active {
-    background-color: #b5ad8c;
+  background-color: #b5ad8c;
+}
+
+.ingredients p {
+  float: right;
+  padding-right: 3rem;
 }
 
 .step-list {
-    list-style-type: none;
-    margin: 2.5rem 10rem;
+  list-style-type: none;
+  margin: 2.5rem 11rem;
+  padding: 0 8%;
 }
-
