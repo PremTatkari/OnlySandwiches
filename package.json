@@ -1,0 +1,16 @@
+{
+  "name": "onlysandwiches",
+  "version": "1.0.0",
+  "description": "A website for sandwich lovers",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "public": "cd recipe-app && npm start"
+  },
+  "author": "Prem Tatkari",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^2.0.22"
+  }
+}
