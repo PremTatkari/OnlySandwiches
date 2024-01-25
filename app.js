@@ -19,6 +19,6 @@ app.all("*", (req, res) => {
     res.status(404).send({error: "404 Page not found"});
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, console.log("Server started on port " + PORT));

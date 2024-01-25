@@ -1,0 +1,312 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #709053;
+  margin: auto -16px;
+  padding: 32px 32px;
+  color: #fff4c9;
+  font-family: "Courier New", Courier, monospace;
+}
+
+header h1 {
+  margin-left: 1.5rem;
+  display: inline;
+}
+
+header label {
+  position: absolute;
+  right: 19rem;
+}
+
+header select {
+  position: absolute;
+  right: 13rem;
+  background-color: #fff4c9;
+  color: #709053;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+header img {
+  position: absolute;
+  right: 3.2rem;
+  top: 1.3rem;
+  width: 3rem;
+  height: auto;
+  filter: invert(1) sepia(1);
+}
+
+body {
+  padding: 0 16px;
+  background-color: #fff4c9;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #fff4c9;
+  font-size: 13px;
+  margin: auto;
+  margin-bottom: 2rem;
+}
+
+footer {
+  bottom: 0;
+  background-color: #709053;
+  margin: 100px -16px 0 -16px;
+  padding: 20px 32px;
+  color: #fff4c9;
+  font-family: "Courier New", Courier, monospace;
+  text-align: center;
+}
+
+.food-container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 93rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 290px));
+  padding: 3rem 0;
+}
+
+.food-item {
+  padding: 1rem;
+  height: 310px;
+  width: 250px;
+  border: 2px solid;
+  border-radius: 10%;
+  background-color: #c7e78b;
+  color: #709053;
+  border-color: #c7e78b;
+}
+
+.food-item img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+  margin-bottom: 7px;
+}
+
+.food-item p {
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.tags {
+  margin-right: 5px;
+  float: left;
+  border: 1px solid;
+  border-radius: 20px;
+  padding: 1px 4px;
+}
+
+.food-item:hover {
+  background-color: #81ae64;
+  color: #fff4c9;
+  border: 4px solid;
+  border-color: #81ae64;
+}
+
+.food-item:hover .tags {
+  background-color: #81ae64;
+  border-color: #fff4c9;
+}
+
+.food-page {
+  margin: 2.5rem;
+  color: #709053;
+}
+
+.food-details {
+  display: flex;
+  height: 28rem;
+}
+
+.food-image img {
+  width: 40rem;
+  height: auto;
+  border: 4px solid;
+}
+
+.food-info {
+  margin-left: 1rem;
+  padding: 12% 8%;
+}
+
+.food-page h2 {
+  display: inline;
+  margin-right: 10rem;
+}
+
+.lists {
+  display: flex;
+  margin: auto;
+}
+
+.ingredient-list {
+  display: inline;
+  margin: 2.5rem 0;
+}
+
+.ingredient-header {
+  color: #f6e397;
+  width: 30rem;
+  height: 3rem;
+  background-color: #81ae64;
+  border: solid #709053;
+  margin-top: -3px;
+  padding: 0.5rem 0; 
+}
+
+.ingredient-header h4 {
+  display: inline;
+  margin-right: 5.2rem;
+  margin-left: 0.8rem;
+}
+
+.ingredient-header h4:last-child {
+  margin-left: 2.3rem;
+}
+
+.ingredients {
+  color: #709053;
+  width: 30rem;
+  height: 3rem;
+  background-color: #c7e78b;
+  border: solid #81ae64;
+  margin-top: -3px;
+  padding: 0.5rem 0.8rem;
+}
+
+.ingredients h4 {
+  list-style-type: none;
+  float: left;
+}
+
+.ingredients h5 {
+  position: absolute;
+  left: 18%;
+}
+
+.ingredients button {
+  background-color: #fff4c9;
+  border-radius: 100%;
+  margin: 0 10px;
+  width: 1.8rem;
+  height: 1.8rem;
+  font-size: large;
+  float: right;
+  position: absolute;
+}
+
+.add {
+  left: 30.5rem;
+}
+
+.remove {
+  left: 25rem;
+}
+
+.ingredients button:hover:active {
+  background-color: #ffe785d2;
+}
+
+.ingredients button:hover {
+  background-color: #ffe785fc;
+}
+
+.ingredients p {
+  float: right;
+  padding-right: 3rem;
+  font-weight: bold;
+}
+
+.step-list {
+  list-style-type: none;
+  margin: 2.5rem 11rem;
+  padding: 0 8%;
+}
+
+.total {
+  color: #709053;
+  width: 30rem;
+  height: 5rem;
+  margin-top: 0.1rem;
+  background-color: #fff4c9;
+  border: solid #81ae64;
+  position: absolute;
+}
+
+.total h4 {
+  display: inline;
+  margin-left: 0.8rem;
+  position: relative;
+  top: 0.5rem;
+}
+
+.total button {
+  background-color: #f6e397;
+  float: right;
+  border: 0;
+  padding: 1.35rem 1.8rem; 
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #709053;
+  border-left: solid #81ae64;
+}
+
+.total button:hover {
+  background-color: #ffe169fc;
+}
+
+.total button:hover:active {
+  background-color: #ffe785d2; 
+}
+
+.steps {
+  border: solid #81ae64;
+  width: 30rem;
+  height: auto;
+  margin-top: -3px;
+  padding: 0.5rem 0.8rem;
+}
+
+.steps td:last-child {
+  padding-left: 1rem;
+}
+
+.stepNumber {
+  border: solid;
+  aspect-ratio: 5;
+  border-radius: 100%;
+  transform: scale(1.4);
+  display: grid;
+  place-items: center;
+}
+
+.cart {
+  width: 60%;
+  margin: auto;
+  padding: 3rem 0;
+  color: #709053;
+  text-align: center;
+}
+
+.cart table {
+  margin: auto;
+  border: solid #81ae64;
+  table-layout: fixed;
+}
+
+.cart th {
+  border: solid #81ae64;
+  padding: 1rem 5rem;
+  background-color: #81ae64;
+  color: #f6e397;
+  width: calc(100%/3);
+}
+
