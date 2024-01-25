@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "public": "cd recipe-app && npm start"
+    "public": "cd frontend && npm start"
   },
   "author": "Prem Tatkari",
   "license": "ISC",
