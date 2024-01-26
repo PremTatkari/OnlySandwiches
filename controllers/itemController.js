@@ -49,4 +49,14 @@ const addItem = async (req, res) => {
     }
 }
 
-module.exports = { getAllItems, getItem, addItem };
+const deleteItem = async (req, res) => {
+    const id = req.params["id"];
+    try {
+        await itemModel.findOneAndDelete({ itemId: id });
+        res.status(200).json({message: `Deleted item ${id}`});
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+module.exports = { getAllItems, getItem, addItem, deleteItem };
