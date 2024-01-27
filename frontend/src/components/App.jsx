@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Food from "./Food";
 import Header from "./Header";
-import foodItems from "../foodItems";
 import Footer from "./Footer";
 
-const items = foodItems;
-
 function App() {
+  const [items, setItems] = useState([]);
+  
+  useEffect(() => {
+    fetch("http://localhost:8000/items/", {method: "GET"})
+        .then((response) => response.json())
+        .then((data) => {
+          setItems(data);
+        })
+        .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
       <Header />
@@ -14,10 +22,10 @@ function App() {
         {items.map((item, index) => (
           <Food
             key={index}
-            image={item.image}
-            name={item.name}
+            image={item.imageUrl}
+            name={item.itemName}
             description={item.description}
-            extra={item.extra}
+            extra={item.tags}
           />
         ))}
       </div>

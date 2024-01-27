@@ -10,8 +10,8 @@ function Food(props) {
         <h4>{props.name}</h4>
         <p>{props.description.length > 100 ? props.description.substring(0,100) + "...": props.description}</p>
         <div className="tag-container">
-          {props.extra.map((ex) => (
-            <Tags tag={ex} />
+          {props.extra.map((ex, index) => (
+            <Tags key={index} tag={ex} />
           ))}
         </div>
       </div>

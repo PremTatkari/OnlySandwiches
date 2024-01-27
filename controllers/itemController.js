@@ -1,6 +1,6 @@
-const { default: mongoose } = require("mongoose")
 const itemModel = require("../models/itemModel");
-const { request } = require("express");
+
+// use async error handler library next time
 
 const getAllItems = async (req, res) => {
     try {
@@ -49,6 +49,26 @@ const addItem = async (req, res) => {
     }
 }
 
+const updateItem = async (req, res) => {
+    try {
+        const { imageUrl, itemName, description, tags, ingredients, steps } = req.body;
+
+        if(!imageUrl || !itemName || !description || !Array.isArray(tags) || !tags.length || !Array.isArray(ingredients) || !ingredients.length || !Array.isArray(steps) || !steps.length) {
+            return res.status(400).json({message: "All fields are required"});
+        }
+        const item = await itemModel.findOneAndUpdate({itemId: req.params["id"]}, req.body);
+        if(!item) {
+            return res.status(400).json({message: "Item not found"});
+        }
+        res.status(200).json({message: "Item updated"});
+        // {imageUrl: imageUrl, itemName: itemName, description: description, tags: tags, ingredients: ingredients, steps: steps}
+        
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({error: "Could not update item"});
+    }
+}
+
 const deleteItem = async (req, res) => {
     const id = req.params["id"];
     try {
@@ -59,4 +79,4 @@ const deleteItem = async (req, res) => {
     }
 }
 
-module.exports = { getAllItems, getItem, addItem, deleteItem };
+module.exports = { getAllItems, getItem, addItem, updateItem, deleteItem };
