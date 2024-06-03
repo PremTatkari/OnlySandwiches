@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import { useNavigate } from "react-router-dom";
 
 const AddFood = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
     imageUrl: "",
     itemName: "",
@@ -38,15 +41,18 @@ const AddFood = () => {
     // You can do something with the form data, such as sending it to an API
     console.log("Form data:", { ...form, tags, ingredients, steps });
     const data = { ...form, tags, ingredients, steps }
-    const response = await fetch("http://localhost:8000/items/addItem", {
+    console.log(data);
+    fetch("http://localhost:8000/items/addItem", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json"
       }
-    });
-    const result = await response.json();
-    setStatus(result);
+    })
+      .then(response => response.json())
+      .then(result => setStatus(result))
+      .then(() => navigate("/"))
+      .catch(err => console.log(err))
   };
 
   return (

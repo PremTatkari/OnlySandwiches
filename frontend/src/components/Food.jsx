@@ -4,7 +4,7 @@ import Tags from "./Tags";
 
 function Food(props) {
   return (
-    <Link to="/foodPage">
+    <Link to={"/foodPage/" + props.itemId}>
       <div className="food-item">
         <img src={props.image} alt="food-img" />
         <h4>{props.name}</h4>

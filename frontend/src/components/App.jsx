@@ -15,18 +15,19 @@ function App() {
         })
         .catch((err) => console.log(err));
   }, []);
-
+  
   return (
     <div>
       <Header />
       <div className="food-container">
-        {items.map((item, index) => (
+        {items && items.map((item, index) => (
           <Food
             key={index}
             image={item.imageUrl}
             name={item.itemName}
             description={item.description}
             extra={item.tags}
+            itemId={item.itemId}
           />
         ))}
         <Link to="/addFood">
