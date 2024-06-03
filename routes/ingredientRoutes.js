@@ -5,12 +5,12 @@ const router = express.Router();
 
 router.get("/", getAllIngredients);
 
-router.get("/:id", getIngredient);
+router.get("/:name", getIngredient);
 
 router.post("/addIngredient", addIngredient);
 
-router.put("/updateIngredient/:id", updateIngredient);
+router.put("/updateIngredient/:name", updateIngredient);
 
-router.delete("/deleteIngredient/:id", deleteIngredient);
+router.delete("/deleteIngredient/:name", deleteIngredient);
 
 module.exports = router;

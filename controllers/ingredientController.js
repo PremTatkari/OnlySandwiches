@@ -2,7 +2,7 @@ const ingredientModel = require("../models/ingredientModel");
 
 // use async error handler library next time
 
-const getAllingredients = async (req, res) => {
+const getAllIngredients = async (req, res) => {
     try {
         const ingredients = await ingredientModel.find();
         if(!ingredients?.length) {
@@ -15,9 +15,9 @@ const getAllingredients = async (req, res) => {
     }
 }
 
-const getingredient = async (req, res) => {
+const getIngredient = async (req, res) => {
     try {
-        const ingredient = await ingredientModel.findOne({ingredientId: req.params["id"]});
+        const ingredient = await ingredientModel.findOne({ingredientName: req.params["name"]});
         if(!ingredient) {
             return res.status(400).json({message: "ingredient not found"});
         }
@@ -28,7 +28,7 @@ const getingredient = async (req, res) => {
     }
 }
 
-const addingredient = async (req, res) => {
+const addIngredient = async (req, res) => {
     try {
         const { ingredientName, ingredientPrice } = req.body;
 
@@ -36,8 +36,8 @@ const addingredient = async (req, res) => {
             return res.status(400).json({message: "All fields are required"});
         }
 
-        const newingredient = new ingredientModel({ ingredientName, ingredientPrice });
-        await newingredient.save();
+        const newIngredient = new ingredientModel({ ingredientName, ingredientPrice });
+        await newIngredient.save();
         res.status(200).json({message: "ingredient added successfully"});
         // const duplicate = await ingredientModel.findOne({ ingredientName }).lean();
         // if(duplicate) {
@@ -49,14 +49,14 @@ const addingredient = async (req, res) => {
     }
 }
 
-const updateingredient = async (req, res) => {
+const updateIngredient = async (req, res) => {
     try {
         const { ingredientName, ingredientPrice } = req.body;
 
         if(!ingredientName || !ingredientPrice) {
             return res.status(400).json({message: "All fields are required"});
         }
-        const ingredient = await ingredientModel.findOneAndUpdate({ingredientId: req.params["id"]}, req.body);
+        const ingredient = await ingredientModel.findOneAndUpdate({ingredientName: req.params["name"]}, req.body);
         if(!ingredient) {
             return res.status(400).json({message: "ingredient not found"});
         }
@@ -69,14 +69,14 @@ const updateingredient = async (req, res) => {
     }
 }
 
-const deleteingredient = async (req, res) => {
-    const id = req.params["id"];
+const deleteIngredient = async (req, res) => {
+    const id = req.params["name"];
     try {
-        await ingredientModel.findOneAndDelete({ ingredientId: id });
-        res.status(200).json({message: `Deleted ingredient ${id}`});
+        await ingredientModel.findOneAndDelete({ ingredientName: name });
+        res.status(200).json({message: `Deleted ingredient ${name}`});
     } catch (err) {
         console.log(err);
     }
 }
 
-module.exports = { getAllingredients, getingredient, addingredient, updateingredient, deleteingredient };
+module.exports = { getAllIngredients, getIngredient, addIngredient, updateIngredient, deleteIngredient };

@@ -11,6 +11,7 @@ app.use(express.json());
 
 app.use("/", require("./routes/root"));
 app.use("/items", require("./routes/itemRoutes"));
+app.use("/ingredients", require("./routes/ingredientRoutes"));
 
 app.all("*", (req, res) => {
     res.status(404).send({error: "404 Page not found"});
