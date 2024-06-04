@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +11,19 @@ const AddFood = () => {
     description: "",
   });
 
+  const [allIngredients, setAllIngredients] = useState([]);
+
   const [tags, setTags] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [steps, setSteps] = useState([]);
   const [status, setStatus] = useState("");
+
+  useEffect(() => {
+    fetch("http://localhost:8000/ingredients", { method: "GET" })
+      .then(response => response.json())
+      .then(data => setAllIngredients(data))
+      .catch(err => console.log(err));
+  });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -105,6 +114,7 @@ const AddFood = () => {
             <button
               type="button"
               onClick={() => handleAdd("tags", tags, setTags)}
+              className={!form.tags ? "hide-btn" : ""}
             >
               Add Tag
             </button>
@@ -112,25 +122,30 @@ const AddFood = () => {
 
           <label>
             Ingredients:
-            <input
-              type="text"
-              name="ingredients"
-              value={form.ingredients}
-              onChange={handleChange}
-            />
+            <select id="ingredients" name="ingredients" value={form.ingredients} onChange={handleChange}>
+              <option value="" selected disabled>Select ingredient</option>
+              {allIngredients.map((ingredient, index) => (
+                <option key={index} value={ingredient.ingredientName} >
+                  {ingredient.ingredientName}
+                </option>
+              ))}
+            </select>
             <div>
               {ingredients.map((ingredient, index) => (
                 <span key={index}>{ingredient} </span>
               ))}
             </div>
+
             <button
               type="button"
               onClick={() =>
-                handleAdd("ingredients", ingredients, setIngredients)
+                !ingredients.includes(form.ingredients) && handleAdd("ingredients", ingredients, setIngredients)
               }
+              className={!form.ingredients ? "hide-btn" : ""}
             >
               Add Ingredient
             </button>
+
           </label>
 
           <label>
@@ -149,15 +164,16 @@ const AddFood = () => {
             <button
               type="button"
               onClick={() => handleAdd("steps", steps, setSteps)}
+              className={!form.steps ? "hide-btn" : ""}
             >
               Add Step
             </button>
           </label>
           <label>
-          {status?.message}
+            {status?.message}
             <button type="submit" className="btn">
               Submit
-            </button> 
+            </button>
           </label>
         </form>
       </div>

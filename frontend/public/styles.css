@@ -200,7 +200,7 @@ footer {
   background-color: #81ae64;
   border: solid #709053;
   margin-top: -3px;
-  padding: 0.5rem 0; 
+  padding: 0.5rem 0;
 }
 
 .ingredient-header h4 {
@@ -293,7 +293,7 @@ footer {
   background-color: #f6e397;
   float: right;
   border: 0;
-  padding: 1.35rem 1.8rem; 
+  padding: 1.35rem 1.8rem;
   font-weight: bold;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #709053;
@@ -305,7 +305,7 @@ footer {
 }
 
 .total button:hover:active {
-  background-color: #ffe785d2; 
+  background-color: #ffe785d2;
 }
 
 .steps {
@@ -357,7 +357,8 @@ footer {
 
 }
 
-.food-form input, textarea {
+.food-form input,
+textarea {
   display: block;
 }
 
@@ -383,7 +384,8 @@ footer {
 }
 
 .form input,
-textarea {
+.form textarea,
+.form select {
   width: 100%;
   padding: 8px;
   margin-bottom: 10px;
@@ -415,3 +417,6 @@ textarea {
   width: 50%;
 }
 
+.hide-btn {
+  display: none;
+}

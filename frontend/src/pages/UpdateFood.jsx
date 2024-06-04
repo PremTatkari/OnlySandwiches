@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UpdateFood = () => {
     const navigate = useNavigate();
     const { id } = useParams();
+    const [allIngredients, setAllIngredients] = useState([]);
     const [form, setForm] = useState({
         imageUrl: "",
         itemName: "",
@@ -15,6 +16,13 @@ const UpdateFood = () => {
     const [ingredients, setIngredients] = useState([]);
     const [steps, setSteps] = useState([]);
     const [status, setStatus] = useState("");
+
+    useEffect(() => {
+        fetch("http://localhost:8000/ingredients", { method: "GET" })
+            .then(response => response.json())
+            .then(data => setAllIngredients(data))
+            .catch(err => console.log(err));
+    });
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -34,9 +42,12 @@ const UpdateFood = () => {
             ...prevForm,
             [sectionName]: "",
         }));
+        console.log(ingredients);
+        console.log(form);
     };
 
-    const handleSubmit = async (e) => {
+
+    const handleSubmit = (e) => {
         e.preventDefault();
         // You can do something with the form data, such as sending it to an API
         console.log("Form data:", { ...form, tags, ingredients, steps });
@@ -105,32 +116,37 @@ const UpdateFood = () => {
                         <button
                             type="button"
                             onClick={() => handleAdd("tags", tags, setTags)}
+                            className={!form.tags ? "hide-btn" : ""}
                         >
                             Add Tag
                         </button>
                     </label>
-
                     <label>
-                        Ingredients:
-                        <input
-                            type="text"
-                            name="ingredients"
-                            value={form.ingredients}
-                            onChange={handleChange}
-                        />
+                        Ingredients:    
+                        <select id="ingredients" name="ingredients" value={form.ingredients} onChange={handleChange}>
+                        <option value="" selected disabled>Select ingredient</option>
+                            {allIngredients.map((ingredient, index) => (
+                                <option key={index} value={ingredient.ingredientName} >
+                                    {ingredient.ingredientName}
+                                </option>
+                            ))}
+                        </select>
                         <div>
                             {ingredients.map((ingredient, index) => (
                                 <span key={index}>{ingredient} </span>
                             ))}
                         </div>
+                        
                         <button
                             type="button"
-                            onClick={() =>
-                                handleAdd("ingredients", ingredients, setIngredients)
+                            onClick={() => 
+                                !ingredients.includes(form.ingredients) && handleAdd("ingredients", ingredients, setIngredients)
                             }
+                            className={!form.ingredients ? "hide-btn" : ""}
                         >
                             Add Ingredient
                         </button>
+                        
                     </label>
 
                     <label>
@@ -149,6 +165,7 @@ const UpdateFood = () => {
                         <button
                             type="button"
                             onClick={() => handleAdd("steps", steps, setSteps)}
+                            className={!form.steps ? "hide-btn" : ""}
                         >
                             Add Step
                         </button>
