@@ -347,8 +347,35 @@ footer {
   border: solid #81ae64;
   padding: 1rem 5rem;
   background-color: #81ae64;
-  color: #f6e397;
+  color: #fff4c9;
   width: calc(100%/3);
+}
+
+.cart td {
+  background-color: #fff4c9;
+  width: calc(100%/3);
+  padding: 1rem;
+}
+
+.cart tr {
+  background: #45a049;
+}
+
+.cart .btn {
+  margin: 1rem;
+  background-color: #c7e78b;
+  border: 0;
+  border-radius: 10%;
+  padding: 10px;
+  width: 6rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: larger;
+  color: #709053;
+}
+
+.cart .btn:hover {
+  background-color: #709053;
+  color: #fff4c9;
 }
 
 .food-form label {

@@ -3,15 +3,38 @@ import React, { useEffect, useState } from "react";
 function Ingredient(props) {
   const [count, setCount] = useState(0);
   const [price, setPrice] = useState(0);
-
+  const i = props.item
   function add() {
     setCount(Math.max(0, count + 1));
-    props.sum(price*(count - (count - 1)));
+    props.sum(price * (count - (count - 1)));
+
+    props.setC((prev) => (
+      {
+        ...prev,
+        [i]: {"count": Math.max(0, count + 1), "price": price}
+      }));
+    // props.setC((prev) => {
+    //   if (prev.i == 0) {
+    //     const { i, ...rest } = prev;
+    //     return rest;
+    //   }
+    // });
   }
 
   function remove() {
     setCount(Math.max(0, count - 1));
-    count > 0 ? props.sub(price*(count - (count - 1))) : props.sub(0);
+    count > 0 ? props.sub(price * (count - (count - 1))) : props.sub(0);
+    props.setC((prev) => ({
+      ...prev,
+      [i]: {"count": Math.max(0, count - 1), "price": price}
+    }));
+    props.setC(curr => {
+      const {[i]: _, ...rest} = curr;
+      if(_["count"] === 0)
+        return rest;
+      else
+        return curr;
+    })
   }
 
   useEffect(() => {

@@ -13,7 +13,7 @@ function FoodPage() {
   const { id } = useParams();
   const [total, setTotal] = useState(0);
   const [item, setItem] = useState(null);
-
+  const [c, setC] = useState();
   function sum(t) {
     setTotal(total + t);
   }
@@ -29,7 +29,7 @@ function FoodPage() {
         setItem(data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [id]);
 
   const handleDelete = () => {
     fetch(`http://localhost:8000/items/deleteItem/${id}`, { method: "DELETE" })
@@ -62,9 +62,9 @@ function FoodPage() {
                 <h4>Quantity</h4>
               </div>
               {item.ingredients.map((item, index) => (
-                <Ingredient key={index} item={item} sum={sum} sub={sub} />
+                <Ingredient key={index} item={item} sum={sum} sub={sub} setC={setC} />
               ))}
-              <Total total={total} />
+              <Total total={total} c={c} />
             </div>
             <div className="step-list">
               <h2>Steps</h2>

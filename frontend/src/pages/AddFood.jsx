@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const AddFood = () => {
   const navigate = useNavigate();
-
+  const { id } = useParams();
   const [form, setForm] = useState({
     imageUrl: "",
     itemName: "",
@@ -51,17 +51,30 @@ const AddFood = () => {
     console.log("Form data:", { ...form, tags, ingredients, steps });
     const data = { ...form, tags, ingredients, steps }
     console.log(data);
-    fetch("http://localhost:8000/items/addItem", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
+    if (!id)
+      fetch("http://localhost:8000/items/addItem", {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
       .then(response => response.json())
       .then(result => setStatus(result))
       .then(() => navigate("/"))
       .catch(err => console.log(err))
+    else
+      fetch(`http://localhost:8000/items/updateItem/${id}`, {
+        method: "PUT",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(response => response.json())
+        .then(result => setStatus(result))
+        .then(() => navigate("/"))
+        .catch(err => console.log(err))
   };
 
   return (
@@ -80,7 +93,7 @@ const AddFood = () => {
           </label>
 
           <label>
-            Item Name:
+            Item Names:
             <input
               type="text"
               name="itemName"
